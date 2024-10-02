@@ -1,6 +1,9 @@
 # NESTJS TEMPLATE API
 
-This is a REST API template made with NestJs, Prisma, JWT Authentication, Roles Guard and Vitest for testing
+This is a REST API template made with NestJs, Prisma and PostgreSQL.
+This project is configured to be used with docker compose.
+Documentation of the endpoints was made with Swagger.
+For unit and e2e tests, Vitest was used.
 
 ## Table of Contents
 
@@ -13,7 +16,7 @@ This is a REST API template made with NestJs, Prisma, JWT Authentication, Roles 
 
 ## Installation
 
-1. Clone the repository:
+1. Clone the repository (You can also just fork the repository and use it as a template):
     ```sh
     git clone https://github.com/SamuelB7/nestjs-prisma-jwt-api-template.git
     cd nestjs-prisma-jwt-api-template
@@ -29,7 +32,7 @@ This is a REST API template made with NestJs, Prisma, JWT Authentication, Roles 
     npm install
     ```
 
-4. Make sure to have Docker Compose installed on your machine.
+4. Make sure to have Docker Compose installed on your machine. The dockerfile.yml in this project will work fine, but I recommend that you change the name of the services and the name of the containers before using it. Also make sure that the environment variables in your .env are correct. 
 
 5. Start the Docker containers:
     ```sh
@@ -38,8 +41,16 @@ This is a REST API template made with NestJs, Prisma, JWT Authentication, Roles 
 
 6. Run database migrations:
     ```sh
-    npm run prisma:migrate
+    npm run prisma:migrate:deploy
     ```
+
+7. If you want to change the structure of the users table you can change the schema and then run:
+
+    ```sh
+    npm run prisma:migrate <name-of-your-migration>
+    ```
+
+ - By default this project is configured to use PostgreSQL, if you want to use any other database, make sure to change the dockerfile.yml to use the correct image.
 
 ## Usage
 
